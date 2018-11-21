@@ -9,10 +9,13 @@ def create_project_hash
 
   kickstarter.css("li.project.grid_4").each do |project|
     title = project.css("h2.bbcard_name strong a").text
-    projects[title] = {}
-    projects[title][:image_link] = project.css(".project-thumbnail a img").attribute("src").value
-    projects[title][:description] =
-    projects[title][:percent_funded] =
+    image_link = project.css(".project-thumbnail a img").attribute("src").value
+    projects[title] = {
+      image_link: image_link,
+      description: project.css(".bbcard_blurb").text
+      percent_funded: project.css(".project-stats li strong")
+      location:
+    }
   end
   projects
 end
