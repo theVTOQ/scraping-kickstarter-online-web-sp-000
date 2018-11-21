@@ -13,8 +13,8 @@ def create_project_hash
     projects[title.to_sym] = {
       image_link: image_link,
       description: project.css("p.bbcard_blurb").text,
-      percent_funded: project.css("ul.project-stats li.first.funded strong").text,
-      location: project.css("ul.project-meta li a span.location-name").text.gsub("%", "").to_i
+      percent_funded: project.css("ul.project-stats li.first.funded strong").text.gsub("%", "").to_i,
+      location: project.css("ul.project-meta li a span.location-name").text
     }
   end
   projects
